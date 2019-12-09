@@ -1,10 +1,10 @@
-FROM python:alpine
+FROM alpine
+  
+RUN apk update && \
+apk add curl unzip python
 
-ARG CLI_VERSION=1.16.86
+RUN curl "https://s3.amazonaws.com/aws-cli/awscli-bundle.zip" -o "awscli-bundle.zip"
 
-RUN apk -uv add --no-cache groff jq less && \
-    pip install --no-cache-dir awscli==$CLI_VERSION
+RUN unzip awscli-bundle.zip
 
-WORKDIR /aws
-
-CMD sh
+RUN ./awscli-bundle/install -i /usr/local/aws -b /usr/local/bin/aws
