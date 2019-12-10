@@ -1,7 +1,7 @@
-FROM ubuntu:16.04
-  
-RUN apt-get update && \
-apt-get install -y curl unzip python
+FROM alpine
+
+RUN apk update && \
+apk add curl unzip python
 
 RUN curl "https://s3.amazonaws.com/aws-cli/awscli-bundle.zip" -o "awscli-bundle.zip"
 
