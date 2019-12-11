@@ -1,5 +1,5 @@
 def args = [
-  build_name: "esgchante/aws-cli"
+ image_name: "test-aws"
 ]
 
 kanikoTest(args)
